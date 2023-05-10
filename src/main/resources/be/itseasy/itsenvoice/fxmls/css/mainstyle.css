@@ -1,0 +1,85 @@
+.root {
+    -fx-base: -color-background;
+    -fx-color: -fx-base;
+    -fx-font-family: "Montserrat";
+    -fx-accent: -color-base-6;
+    -fx-default-button: -fx-accent;
+    -jfx-primary-color: -fx-accent;
+    -jfx-light-primary-color: -fx-accent;
+    -jfx-dark-primary-color: -fx-accent;
+    -fx-focus-color: -color-bg-overlay;
+    -jfx-secondary-color: -fx-focus-color;
+    -jfx-light-secondary-color: -fx-focus-color;
+    -jfx-dark-secondary-color: -fx-focus-color;
+}
+
+/* JFX Tab Pane */
+.jfx-tab-pane .headers-region {
+    -fx-background-color: -fx-accent;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: -fx-accent;
+}
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: -fx-accent;
+}
+
+.jfx-tab-pane .tab-header-area .jfx-rippler {
+    -jfx-rippler-fill: -fx-focus-color;
+}
+
+.tab-selected-line {
+    -fx-background-color: -fx-focus-color;
+}
+
+#header-bar {
+    -fx-background-color: -color-accent-emphasis;
+    -fx-padding: 0px 20px 0px 0;
+    -fx-spacing: 30px;
+}
+
+#header-bar .logo {
+    -fx-padding: 0px 0 0px 10px;
+}
+#header-bar .logo .image {
+    -fx-background-color:-color-success-emphasis;
+    -fx-background-radius: 6px;
+}
+
+#header-bar .logo .label {
+    -fx-text-fill: -color-fg-emphasis;
+}
+
+#header-bar .logo .version {
+    -fx-padding: -1em 0 0 0;
+}
+
+
+#header-bar .text-field {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-opacity: 0.85;
+
+    -color-input-bg: -color-accent-emphasis;
+    -color-input-bg-focused: -color-accent-emphasis;
+    -color-input-fg: -color-fg-emphasis;
+    -color-input-border: -color-fg-emphasis;
+    -color-input-border-focused: -color-fg-emphasis;
+    -fx-prompt-text-fill: -color-fg-emphasis;
+}
+#header-bar .text-field .ikonli-font-icon {
+    -fx-icon-color: -color-fg-emphasis;
+    -fx-fill: -color-fg-emphasis;
+}
+
+
+#header-bar  .page-title {
+    -fx-text-fill: -color-fg-emphasis;
+    -fx-padding: 0 0 0 30px;
+}
+
+#header-bar .page-title .ikonli-font-icon {
+}
+

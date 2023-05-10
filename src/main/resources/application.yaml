@@ -1,0 +1,25 @@
+spring:
+  application:
+    ui:
+      title: IT's Envoice
+  main:
+    web-application-type: NONE
+  jpa:
+
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driverClassName: org.sqlite.JDBC
+    url: jdbc:sqlite:C:/devenv/src/projects/java_apps/its-envoice-sp/db/its-envoicev2.sqlite
+  hibernate:
+    enable_lazy_load_no_trans: true
+  logging:
+    level:
+      org:
+        hibernate:
+          type: trace

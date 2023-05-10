@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+	 xmlns="http://javafx.com/javafx/16"
+	fx:controller="be.itseasy.itsenvoice.view.controllers.CompanyInfoController">
+	<children>
+		<HBox prefHeight="100.0" prefWidth="200.0"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<children>
+				<VBox alignment="TOP_CENTER" prefHeight="200.0"
+					prefWidth="100.0" HBox.hgrow="ALWAYS">
+					<children>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Nom de la société :" />
+								<TextField fx:id="company_name" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+							prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Slogan : " />
+								<TextField fx:id="company_slogan" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Rue : " />
+								<TextField fx:id="company_street" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Numéro : " />
+								<TextField fx:id="company_number" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Code Postal : " />
+								<TextField fx:id="company_zipcode" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+							prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Localité : " />
+								<TextField fx:id="company_city" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+							prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Téléphone : " />
+								<TextField fx:id="company_phone" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+							prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Email : " />
+								<TextField fx:id="company_mail" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Assujeti : " />
+								<CheckBox fx:id="company_has_vat"
+									maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+									onAction="#apply_vat" text="Assujeti à la TVA"
+									HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="Numéro de TVA : " />
+								<TextField fx:id="company_vat_number"
+									HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="IBAN : " />
+								<TextField fx:id="company_bank_account_iban"
+									HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="150.0"
+									text="BIC : " />
+								<TextField fx:id="company_bank_account_bic"
+									HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+					</children>
+					<padding>
+						<Insets left="5.0" right="5.0" />
+					</padding>
+				</VBox>
+				<VBox alignment="TOP_CENTER" prefHeight="200.0"
+					prefWidth="100.0" HBox.hgrow="ALWAYS">
+					<children>
+						<HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="10.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="200.0"
+									text="Logo : " />
+								<Button fx:id="edit_company_logo" mnemonicParsing="false"
+									onAction="#load_logo_from_file" prefWidth="200.0"
+									text="Modifier" HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="10.0"
+							prefHeight="140.0" prefWidth="200.0" spacing="10.0">
+							<children>
+								<Label alignment="CENTER_RIGHT" minWidth="200.0"
+									text="      " />
+								<ImageView fx:id="company_logo" fitHeight="140.0"
+									fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+									HBox.hgrow="ALWAYS">
+									<HBox.margin>
+										<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+									</HBox.margin>
+								</ImageView>
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0"
+							spacing="10.0" visible="false">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="362.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="561.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="524.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="456.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="460.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+						<HBox alignment="CENTER" layoutX="15.0" layoutY="510.0"
+							prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+							<children>
+								<Button fx:id="save_button_coin"
+									maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+									onAction="#save_company_info" text="Enregistrer"
+									HBox.hgrow="ALWAYS" />
+								<Button fx:id="cancel_button_coin"
+									maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+									onAction="#cancel_company_info" text="Annuler"
+									HBox.hgrow="ALWAYS" />
+							</children>
+							<padding>
+								<Insets right="30.0" />
+							</padding>
+						</HBox>
+
+					</children>
+					<padding>
+						<Insets left="5.0" right="5.0" />
+					</padding>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+	<padding>
+		<Insets top="5.0" />
+	</padding>
+</AnchorPane>

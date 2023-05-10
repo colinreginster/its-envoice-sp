@@ -1,0 +1,34 @@
+module be.itseasy.itsenvoice {
+    requires java.base;
+    requires spring.boot;
+    requires spring.boot.autoconfigure;
+    requires spring.beans;
+    requires spring.context;
+    requires spring.core;
+    requires org.hibernate.orm.core;
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires javafx.web;
+    requires javafx.graphics;
+    requires javafx.swing;
+    requires org.controlsfx.controls;
+    requires com.dlsc.formsfx;
+    requires org.kordamp.ikonli.javafx;
+    requires eu.hansolo.tilesfx;
+    requires jakarta.persistence;
+    requires jakarta.annotation;
+    requires spring.data.jpa;
+    requires atlantafx.base;
+    requires com.jfoenix;
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.feather;
+
+    opens be.itseasy.itsenvoice to ALL-UNNAMED;
+    opens be.itseasy.itsenvoice.model.entities to spring.core;
+    opens be.itseasy.itsenvoice.view.controllers.cruds to spring.core;
+    opens be.itseasy.itsenvoice.viewmodel.services to spring.core;
+    exports be.itseasy.itsenvoice;
+    exports be.itseasy.itsenvoice.model.entities;
+    exports be.itseasy.itsenvoice.view.controllers.cruds;
+    exports be.itseasy.itsenvoice.viewmodel.services;
+}

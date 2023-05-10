@@ -1,0 +1,111 @@
+package be.itseasy.itsenvoice.view.controllers;
+
+import atlantafx.base.theme.Styles;
+import be.itseasy.itsenvoice.model.entities.Item;
+import be.itseasy.itsenvoice.viewmodel.services.ItemService;
+import com.jfoenix.controls.JFXTextField;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.util.StringConverter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
+import java.net.URL;
+import java.util.*;
+
+@Component
+public class ItemController extends CRUDController implements Initializable {
+    VBox mainForm = new VBox();
+    Locale locale = Locale.getDefault();
+    ResourceBundle bundle = ResourceBundle.getBundle("itsenvoice", locale);
+    JFXTextField nameJtextfield = new JFXTextField();
+    JFXTextField descriptionTextfield = new JFXTextField();
+    JFXTextField priceTextfield = new JFXTextField();
+    JFXTextField vatRateTextfield = new JFXTextField();
+
+    @Autowired
+    private ItemService itemService;
+
+    private ObjectProperty<Item> item;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        item = new SimpleObjectProperty<>(itemService.getItem(1));
+        createBindings(null);
+        item.addListener((obs, oldval, newval) -> createBindings(oldval));
+        super.initialize(event -> {
+            itemService.saveItem(item.get());
+            item.set(itemService.getItem(1));
+            buttonContainer.setVisible(false);
+            buttonContainer.setManaged(false);
+        },event -> {
+            item.set(itemService.getItem(1));
+            buttonContainer.setVisible(false);
+            buttonContainer.setManaged(false);
+        });
+        root.getChildren().addAll(mainForm);
+        mainForm.setSpacing(5);
+
+        TitledPane formPart1 = initializeFormPart("crud.item.itemDetails");
+        mainForm.getChildren().add(formPart1);
+        VBox formPart1VBox = (VBox) formPart1.getContent();
+        formPart1VBox.setSpacing(25);
+
+        nameJtextfield.setPromptText(bundle.getString("crud.item.name"));
+        nameJtextfield.setLabelFloat(true);
+        nameJtextfield.setMinWidth(350.0);
+        descriptionTextfield.setPromptText(bundle.getString("crud.item.description"));
+        descriptionTextfield.setLabelFloat(true);
+        descriptionTextfield.setMinWidth(350.0);
+        priceTextfield.setPromptText(bundle.getString("crud.item.price"));
+        priceTextfield.setLabelFloat(true);
+        priceTextfield.setMinWidth(350.0);
+        vatRateTextfield.setPromptText(bundle.getString("crud.item.vatRate"));
+        vatRateTextfield.setLabelFloat(true);
+        vatRateTextfield.setMinWidth(350.0);
+
+        formPart1VBox.getChildren().addAll(nameJtextfield, descriptionTextfield, priceTextfield, vatRateTextfield);
+    }
+
+    private void createBindings(Item oldval) {
+        if (oldval != null) {
+            nameJtextfield.textProperty().unbindBidirectional(oldval.nameProperty());
+            descriptionTextfield.textProperty().unbindBidirectional(oldval.descriptionProperty());
+            priceTextfield.textProperty().unbindBidirectional(oldval.priceProperty().asString());
+            vatRateTextfield.textProperty().unbindBidirectional(oldval.vatRateProperty().asString());
+        }
+        item.get().addChangeListener((observable, oldValue, newValue) -> {
+            buttonContainer.setVisible(true);
+            buttonContainer.setManaged(true);
+        });
+        nameJtextfield.textProperty().bindBidirectional(item.get().nameProperty());
+        descriptionTextfield.textProperty().bindBidirectional(item.get().descriptionProperty());
+        priceTextfield.textProperty().bindBidirectional(item.get().priceProperty(), new BigDecimalStringConverter());
+        vatRateTextfield.textProperty().bindBidirectional(item.get().vatRateProperty(), new BigDecimalStringConverter());
+    }
+
+
+
+    private class BigDecimalStringConverter extends StringConverter<BigDecimal> {
+        @Override
+        public String toString(BigDecimal value) {
+            return value != null ? value.toString() : "";
+        }
+
+        @Override
+        public BigDecimal fromString(String string) {
+            try {
+                return new BigDecimal(string);
+            } catch (NumberFormatException e) {
+                return BigDecimal.ZERO;
+            }
+        }
+    }
+}
